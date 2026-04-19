@@ -99,56 +99,30 @@ W = W - learning_rate * grad
 
 ### `CustomLayerNet` 类
 
-#### 初始化参数说明
+#### 初始化参数
 
-在创建 `CustomLayerNet` 实例时，需要提供以下参数：
+| 参数 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| `input_size` | `int` | - | 输入特征的数量 |
+| `hidden_size` | `int` | - | 所有隐藏层统一使用的神经元数量 |
+| `output_size` | `int` | - | 输出类别数 |
+| `net_layer` | `int` | `2` | 网络总层数（包含输入输出层） |
+| `learning_time` | `int` | `1000` | 训练迭代总次数 |
+| `learning_rate` | `float` | `1` | 梯度下降学习率 |
+| `training_standard` | `np.ndarray` | `None` | 真实标签的 one-hot 编码矩阵，可通过 `net.t` 赋值 |
+| `batch_size` | `int` | `None` | 预留参数，当前版本未使用 |
 
-- **`input_size`** (整数)  
-  输入特征的数量。例如，对于鸢尾花数据集，该值为 4。
+#### 核心方法
 
-- **`hidden_size`** (整数)  
-  所有隐藏层统一使用的神经元数量。网络中的每一个隐藏层都具有相同数量的神经元。
-
-- **`output_size`** (整数)  
-  输出类别数。对于二分类或多分类任务，应等于类别总数。
-
-- **`net_layer`** (整数，默认值为 2)  
-  网络的总层数，包括输入层和输出层。例如，若希望有一个隐藏层加一个输出层，则该参数应设为 3。
-
-- **`learning_time`** (整数，默认值为 1000)  
-  训练过程中参数更新的总迭代次数。
-
-- **`learning_rate`** (浮点数，默认值为 1)  
-  梯度下降算法中控制参数更新幅度的学习率。
-
-- **`training_standard`** (NumPy 数组，默认值为 None)  
-  真实标签的 one-hot 编码矩阵。可以在实例化之后通过 `net.t = your_labels` 进行赋值。
-
-- **`batch_size`** (整数，默认值为 None)  
-  为将来的批量训练预留的参数，当前版本中未被使用。
-
-#### 核心方法说明
-
-- **`forward(x, fact)`**  
-  接收输入数据 `x` 和网络参数列表 `fact`，执行完整的前向传播过程，返回最后一层经过 Softmax 处理后的概率分布输出。
-
-- **`backword(x)`**  
-  对输入数据 `x` 使用数值梯度法计算损失函数关于每一个参数的梯度，并更新网络内部存储的参数 `self.fact`。该方法返回更新后的参数列表。
-
-- **`function(x)`**  
-  完整的训练流程封装。在调用前必须将真实标签赋值给 `self.t`。该方法内部会循环执行 `forward` 和 `backword` 方法 `learning_time` 次，并返回最后一次迭代的输出概率。
-
-- **`loss(out)`**  
-  计算模型输出 `out` 与真实标签 `self.t` 之间的交叉熵损失值。
-
-- **`softmax(x)`**  
-  对输入矩阵 `x` 按行计算 Softmax 激活值，用于输出层。
-
-- **`sigmoid(x)`**  
-  对输入矩阵 `x` 逐元素计算 Sigmoid 激活值，用于隐藏层。
-
-  ---
-
+| 方法 | 返回值 | 说明 |
+|------|--------|------|
+| `forward(x, fact)` | `np.ndarray` | 执行前向传播，返回 Softmax 输出概率 |
+| `backword(x)` | `list` | 计算数值梯度并更新参数，返回更新后的 `self.fact` |
+| `function(x)` | `np.ndarray` | 完整训练流程，返回最终输出概率 |
+| `loss(out)` | `float` | 计算交叉熵损失值 |
+| `softmax(x)` | `np.ndarray` | 按行计算 Softmax 激活值 |
+| `sigmoid(x)` | `np.ndarray` | 逐元素计算 Sigmoid 激活值 |
+---
 ## 🧪 示例
 
 ### 1. XOR 问题
