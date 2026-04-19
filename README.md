@@ -195,7 +195,7 @@ y = OneHotEncoder(sparse=False).fit_transform(iris.target.reshape(-1,1))
 
 # 创建网络：输入4维，隐藏层8个神经元，输出3类
 net = CustomLayerNet(input_size=4, hidden_size=8, output_size=3,
-                     net_layer=3, learning_time=800, learning_rate=0.05)
+                     net_layer=3, learning_time=800, learning_rate=1)
 
 # 设置训练标准
 net.t = y
