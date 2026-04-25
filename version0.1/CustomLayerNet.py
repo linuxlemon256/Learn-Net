@@ -32,7 +32,7 @@ class CustomLayerNet:
 
     def giant(self, f , x):
         h=1e-8
-        return f(x+h) - f (x-h) / 2 * h
+        return f(x+h) - f (x-h) / （2 * h）
 
 
     def loss(self,out):
