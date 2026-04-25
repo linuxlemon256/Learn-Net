@@ -99,7 +99,7 @@ W = W - learning_rate * grad
 
 #### Initialization Parameters
 
-| Parameter |类型| Default |描述|
+| Parameter | Type | Default | Description |
 |------|------|--------|------|
 | `input_size` | `int` | - | Number of input features |
 | `hidden_size` | `int` | - | Number of neurons used uniformly in all hidden layers |
@@ -140,7 +140,7 @@ net = CustomLayerNet(input_size=2, hidden_size=4, output_size=2,
 # Set training standards (true labels)
 net.t = y
 
-# 训练
+# Training
 out = net.function(X)
 predicted_classes = np.argmax(out, axis=1)
 print("Predicted category sequence:", predicted_classes)
