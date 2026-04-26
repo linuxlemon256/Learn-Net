@@ -28,7 +28,7 @@ A multi-layer fully connected neural network implemented purely in NumPy，**Usi
 
 ## ✨ Features
 
-- **Zero-dependency black magic** — Only `numpy` and `copy` (Python standard library), all gradients are manually computed.
+- **Zero-dependency black magic** — Only `numpy` , all gradients are manually computed.
 - **Arbitrary deep networks** — Freely set the number of hidden layers through `net_layer`.
 - **Numerical gradient verification** — Central difference method ensures the correctness of backpropagation without deriving the chain rule.
 - **Cross-entropy Softmax** — Natively supports multi-class tasks.
