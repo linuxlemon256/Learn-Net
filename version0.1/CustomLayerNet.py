@@ -1,5 +1,4 @@
 import numpy as np
-import copy
 
 class CustomLayerNet:
     def __init__(self,input_size,hidden_size,output_size,net_layer=2,learning_time=1000,learning_rate=1,training_standard=None,batch_size=None):
