@@ -1,4 +1,4 @@
-# 🧠 CustomLayerNet
+# 🧠 Neural-Network
 
 ![Python](https://img.shields.io/badge/Python-3.6%2B-blue)
 ![NumPy](https://img.shields.io/badge/NumPy-1.19%2B-013243)
