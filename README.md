@@ -41,8 +41,8 @@ A multi-layer fully connected neural network implemented purely in NumPy，**Usi
 Clone the repository and make sure NumPy is installed：
 
 ```bash
-git clone https://github.com/yourusername/CustomLayerNet.git
-cd CustomLayerNet
+git clone https://github.com/linuxlemon256/Neural-Network.git
+cd Neural-Network
 pip install numpy
 ```
 
